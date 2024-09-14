@@ -1,12 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import { Footer } from "./Footer";
+import { Header } from "./Header";
 
-function App() {
+function App() { //Function Component
   return (
-    <div className="App">
-      HELLO WORLD
+    <div> 
+      <Header/>
+      <Footer/>
     </div>
   );
 }
+
+
 
 export default App;
