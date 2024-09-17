@@ -1,15 +1,15 @@
-import { Footer } from "./Footer";
-import { Header } from "./Header";
+import { Content } from "./Content";
+import { DemoInput } from "./DemoInput";
 
 function App() { //Function Component
+  let count = 0;
   return (
     <div> 
-      <Header/>
-      <Footer/>
+      {/* <Content></Content> */}
+      <DemoInput/>
     </div>
   );
 }
-
 
 
 export default App;
