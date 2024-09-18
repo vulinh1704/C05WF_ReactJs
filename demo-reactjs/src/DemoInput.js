@@ -10,6 +10,28 @@ export class DemoInput extends React.Component {
             list: ["Linh", "Hoàng", "Thành", "Việt", "Như"],
             dataEdit: ''
         };
+        /*
+
+         list = [
+            {
+                id: 1,
+                name: "Linh",
+                age: 26
+            },
+            {
+                id: 2,
+                name: "Nhân",
+                age: 27
+            },
+            {
+                id: 3,
+                name: "Phúc",
+                age: 28
+            }
+        ]
+
+
+        */
     }
 
     getData = (event) => { // event là 1 giá trị đại diện cho dữ liệu của sự kiện đang dùng
@@ -60,4 +82,5 @@ export class DemoInput extends React.Component {
 
 
 
+// item.name, item.id
 
