@@ -2,14 +2,22 @@ import { Route, Routes } from "react-router-dom";
 import { Home } from "./Home";
 import { Add } from "./Add";
 import { Edit } from "./Edit";
+import { Category } from "./Category";
+import { Blog } from "./Blog";
+import { Product } from "./Product";
 
 function App() {
   return (
     <>
       <Routes>
-        <Route path="/home" element={<Home />} />
+        <Route path="/home" element={<Home />}>
+          <Route path="product" element={<Product />} />
+          <Route path="category" element={<Category />} />
+          <Route path="blog" element={<Blog />} />
+        </Route>
+
         <Route path="/add" element={<Add />} />
-        <Route path="/edit" element={<Edit />} />
+        <Route path="/edit/:id/:classId" element={<Edit />} />
       </Routes>
     </>
   );
