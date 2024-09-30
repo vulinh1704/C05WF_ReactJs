@@ -1,23 +1,49 @@
 import axios from "axios";
+import { Formik, Form, Field } from "formik";
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 
 export function Add() {
-    const [name, setName] = useState('');
-    const [score, setScore] = useState('');
     const navigate = useNavigate();
 
-    const add = () => {
-        // let data = {...}
-        axios.post("http://localhost:3000/students", data);
-        navigate("/home/list"); 
+    const add = (data) => {
+        axios.post("http://localhost:3000/students", data).then(() => {
+            navigate("/home/list");
+        })
     }
+
     return (
         <>
-        {/* Input */}
-            <h1>Đây là add</h1>
-            <button>Thêm mới</button>
+            <h1>Add Studentt</h1>
+            <Formik
+                initialValues={ // giá trị khởi tạo mặc định cho các ô input
+                    {
+                        name: '',
+                        action: '',
+                        description: '',
+                        score: ''
+                    }
+                }
+                onSubmit={ // chứa hàm xử lý khi người dùng submit
+                    (values) => {
+                        add(values);
+                    }
+                }
+            >
+                <Form>
+                    <Field name="name" type="text" placeholder="Name"></Field>
+                    <Field name="action" type="text" placeholder="Action"></Field>
+                    <Field name="description" type="text" placeholder="Description"></Field>
+                    <Field name="score" type="number" placeholder="Score"></Field>
+                    <button>Submit</button>
+                </Form>
+            </Formik>
         </>
     )
 }
+
+// Formik: là form sử dụng trong React
+// Form: Sử dụng để nhận 1 tập dữ liệu từ người
+
+// a => Link
 

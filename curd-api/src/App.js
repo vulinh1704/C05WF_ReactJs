@@ -12,6 +12,7 @@ function App() {
           <Route path="list" element={<List />} />
           <Route path="add" element={<Add />} />
           <Route path="edit/:id" element={<Edit />} />
+          {/* <Route path="detail/:id" element={<Detail />} /> */}
         </Route>
       </Routes>
     </>
