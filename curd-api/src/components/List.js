@@ -1,3 +1,4 @@
+import "../css/List.css";
 import axios from "axios";
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
@@ -28,9 +29,7 @@ export function List() {
 
     return (
         <>
-            <h1>Home page</h1>
-            {/* <button onClick={getData}>Click get data</button> */}
-            <table border={1}>
+            {/* <table border={1}>
                 <tr>
                     <th>Id</th>
                     <th>Name</th>
@@ -49,7 +48,21 @@ export function List() {
                         <td><Link to={"/home/detail/" + item.id}><button>Detail</button></Link></td>
                     </tr>
                 ))}
-            </table>
+            </table> */}
+
+            <div className="list">
+                {list.map((item) => (
+                    <div className="item">
+                        <div className="img">
+                            <img src={item.img} alt="" />
+                        </div>
+                        <div class="name">
+                            {item.name}
+                        </div>
+                    </div>
+                ))}
+
+            </div>
         </>
     )
 }
