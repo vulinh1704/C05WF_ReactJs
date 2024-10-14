@@ -9,7 +9,9 @@ import { useEffect, useState } from "react";
 
 
 function App() {
-  const token = localStorage.getItem("token"); // null
+  const token = localStorage.getItem("token"); // lay ngay khi chay chuong trinh => đăng nhập xong token mới sinh ra
+  // => null
+  // user
   return (
     <>
 

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 export function Header() {
+    // thông tin user
     return (
         <>
             <h1>Header</h1>
