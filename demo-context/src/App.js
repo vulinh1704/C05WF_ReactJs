@@ -5,19 +5,22 @@ import { Add } from "./components/products/components/Add";
 import { Edit } from "./components/products/components/Edit";
 import { Login } from "./components/users/Login";
 import { Register } from "./components/users/Register";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { InfoContext, InfoProvider } from "./components/context/InfoContext";
 
 
 function App() {
-  const token = localStorage.getItem("token"); // lay ngay khi chay chuong trinh => đăng nhập xong token mới sinh ra
+  // const token = localStorage.getItem("token"); // lay ngay khi chay chuong trinh => đăng nhập xong token mới sinh ra
   // => null
   // user
+
+  const { user } = useContext(InfoContext);
+  console.log("App.user", user);
   return (
     <>
-
       <Routes>
         {
-          token ? <>
+          user ? <>
             <Route element={<Main />} path="">
               <Route element={<List />} path="home" />
               <Route element={<Add />} path="add" />

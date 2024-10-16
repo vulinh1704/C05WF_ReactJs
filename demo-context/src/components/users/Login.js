@@ -1,23 +1,28 @@
 import { Field, Form, Formik } from "formik";
 import { Link, useNavigate } from "react-router-dom"
 import baseAxios, { METHOD_HTTP } from "../../configs/baseAxios";
-import React from 'react';
+import React, { useContext } from 'react';
+import { InfoContext } from "../context/InfoContext";
 
 export function Login() {
     const navigate = useNavigate();
+    const { setUser } = useContext(InfoContext);
 
     const submit = async (values) => {
         try {
-            console.log("Data login", values)
             let data = await baseAxios(METHOD_HTTP.POST, "/login", values);
-            console.log("Data", data);
-            localStorage.setItem("token", data.token)
+            localStorage.setItem("token", data.token);
+            await getInfo();
             navigate("/home");
-        } catch(e) {
+        } catch (e) {
             alert(e.message);
-        }  
+        }
     }
-
+    
+    const getInfo = async () => {
+        let data = await baseAxios(METHOD_HTTP.GET, "get-info");
+        setUser(data);
+    }
 
     return (
         <>
